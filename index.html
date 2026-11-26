@@ -93,6 +93,56 @@ body {
 </div>
 
 <div class="container">
+<div style="background:#101c31;padding:18px;border-radius:14px;margin:15px 0;border:1px solid #1769b5;">
+
+<h3 style="color:#168bff;text-align:center;">
+معلومات الهاتف
+</h3>
+
+<label>اختر موديل Samsung:</label>
+
+<select id="model" style="width:100%;padding:14px;margin-top:12px;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+<option value="">اختر الموديل</option>
+<option>Galaxy A12</option>
+<option>Galaxy A13</option>
+<option>Galaxy A14</option>
+<option>Galaxy A15</option>
+<option>Galaxy A24</option>
+<option>Galaxy A32</option>
+<option>Galaxy A52</option>
+<option>Galaxy A54</option>
+<option>Galaxy S20</option>
+<option>Galaxy S21</option>
+<option>Galaxy S22</option>
+<option>Galaxy S23</option>
+<option>Galaxy S24</option>
+
+</select>
+
+<button class="tool" onclick="showModel()">
+عرض معلومات الموديل
+</button>
+
+<p id="modelInfo" style="color:#9bbce0;text-align:center;"></p>
+
+</div>
+
+<script>
+function showModel() {
+  let model = document.getElementById("model").value;
+  let info = document.getElementById("modelInfo");
+
+  if (model === "") {
+    info.innerHTML = "يرجى اختيار موديل الهاتف";
+  } else {
+    info.innerHTML =
+      "الموديل المختار: " + model +
+      "<br>يمكنك البحث عن ملف Firmware المناسب لهذا الموديل.";
+  }
+}
+</script>
+
 
   <h2 class="section-title">قائمة الأدوات</h2>
 
