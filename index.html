@@ -7,86 +7,120 @@
 <title>Rahmouni Samsung Tool</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  background: #07111f;
+  background: #050914;
   color: white;
   font-family: Arial, sans-serif;
+  direction: rtl;
+}
+
+.header {
   text-align: center;
+  padding: 30px 15px;
+  background: linear-gradient(135deg, #101e38, #07101f);
+  border-bottom: 2px solid #168bff;
 }
 
-header {
-  background: #14243b;
-  padding: 25px 10px;
-  border-bottom: 2px solid #1688ff;
+.logo {
+  font-size: 42px;
+  font-weight: bold;
+  color: #168bff;
 }
 
-h1 {
-  color: #42a5ff;
-  font-size: 25px;
+.header h1 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.header p {
+  color: #9bbce0;
 }
 
 .container {
   padding: 20px;
+  max-width: 600px;
+  margin: auto;
 }
 
-button {
-  width: 90%;
-  max-width: 350px;
-  padding: 16px;
-  margin: 10px;
-  border: 1px solid #1688ff;
-  border-radius: 12px;
-  background: #102b4c;
+.section-title {
+  color: #168bff;
+  text-align: center;
+  margin: 25px 0;
+}
+
+.tool {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  margin: 12px 0;
+  background: #101c31;
   color: white;
+  border: 1px solid #1769b5;
+  border-radius: 14px;
   font-size: 17px;
+  text-align: right;
 }
 
-button:active {
-  background: #1688ff;
+.tool span {
+  color: #168bff;
+  margin-left: 12px;
 }
 
-footer {
-  margin-top: 30px;
-  color: #8295ad;
+.tool:active {
+  background: #174b80;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: #7589a5;
+  font-size: 13px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="header">
+  <div class="logo">SAMSUNG</div>
   <h1>Rahmouni Samsung Tool</h1>
-  <p>USB Flash • Firmware • Repair</p>
-</header>
+  <p>أداة صيانة هواتف Samsung</p>
+</div>
 
 <div class="container">
 
-  <button onclick="alert('قسم USB Flash قيد التطوير')">
-    USB Flash
+  <h2 class="section-title">قائمة الأدوات</h2>
+
+  <button class="tool" onclick="alert('USB Flash - قيد التطوير')">
+    <span>🔌</span> USB Flash
   </button>
 
-  <button onclick="alert('قسم Firmware قيد التطوير')">
-    Firmware
+  <button class="tool" onclick="alert('Firmware - قيد التطوير')">
+    <span>📦</span> Firmware
   </button>
 
-  <button onclick="alert('قسم FRP Recovery')">
-    FRP Recovery
+  <button class="tool" onclick="alert('Samsung Drivers - قيد التطوير')">
+    <span>💻</span> Samsung Drivers
   </button>
 
-  <button onclick="alert('قسم Samsung Drivers')">
-    Samsung Drivers
+  <button class="tool" onclick="alert('FRP Recovery - استعادة الحساب الرسمي')">
+    <span>🔐</span> FRP Recovery
   </button>
 
-  <button onclick="alert('قسم معلومات الهاتف')">
-    Phone Information
+  <button class="tool" onclick="alert('Phone Information - قيد التطوير')">
+    <span>📱</span> Phone Information
   </button>
 
 </div>
 
-<footer>
+<div class="footer">
   Rahmouni Hocine © 2026
-</footer>
+</div>
 
 </body>
 </html>
