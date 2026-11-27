@@ -609,5 +609,81 @@ function refreshDashboard() {
 refreshDashboard();
 </script>
 
+<!-- Rahmouni FRP Center -->
+<div class="container">
+  <h2 class="section-title">🔐 Samsung FRP Center</h2>
+
+  <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;">
+
+    <p style="color:#9bbce0;text-align:center;">
+      مركز تشخيص واستعادة حساب Google
+    </p>
+
+    <label for="frpModel">رقم موديل الهاتف:</label>
+
+    <input id="frpModel"
+      placeholder="مثال: SM-A145F"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+    <label for="frpStatus">حالة FRP:</label>
+
+    <select id="frpStatus"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+      <option value="">اختر الحالة</option>
+      <option value="locked">الهاتف يطلب حساب Google السابق</option>
+      <option value="normal">الهاتف يعمل بشكل طبيعي</option>
+      <option value="unknown">لا أعرف حالة الهاتف</option>
+    </select>
+
+    <button class="tool" onclick="checkFRP()">
+      🔎 تشخيص حالة FRP
+    </button>
+
+    <div id="frpResult"
+      style="color:#9bbce0;text-align:center;margin-top:15px;">
+    </div>
+
+    <a class="tool"
+      style="display:block;text-decoration:none;text-align:center;"
+      href="https://accounts.google.com/signin/recovery"
+      target="_blank">
+      استعادة حساب Google
+    </a>
+
+    <a class="tool"
+      style="display:block;text-decoration:none;text-align:center;"
+      href="https://www.samsung.com/africa_en/support/"
+      target="_blank">
+      مركز Samsung الرسمي
+    </a>
+
+  </div>
+</div>
+
+<script>
+function checkFRP() {
+  const model = document.getElementById("frpModel").value.trim();
+  const status = document.getElementById("frpStatus").value;
+  const result = document.getElementById("frpResult");
+
+  if (!model || !status) {
+    result.textContent = "أدخل الموديل واختر الحالة أولاً.";
+    return;
+  }
+
+  if (status === "locked") {
+    result.textContent =
+      "الهاتف يطلب الحساب السابق. استخدم استعادة Google أو دعم Samsung مع إثبات الملكية.";
+  } else if (status === "normal") {
+    result.textContent =
+      "حسب اختيارك، الهاتف لا يعرض طلب FRP حاليًا.";
+  } else {
+    result.textContent =
+      "تحقق من شاشة إعداد الهاتف لمعرفة هل يطلب حساب Google السابق.";
+  }
+}
+</script>
+
 </body>
 </html>
