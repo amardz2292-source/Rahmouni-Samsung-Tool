@@ -312,5 +312,48 @@ function checkPhone() {
 }
 </script>
 
+<!-- Firmware Search -->
+<div class="container">
+  <h2 class="section-title">Samsung Firmware</h2>
+
+  <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;">
+
+    <p style="color:#9bbce0;">
+      أدخل رقم موديل هاتفك للبحث عن ملفات النظام.
+    </p>
+
+    <input id="firmwareModel"
+      placeholder="مثال: SM-A145F"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+    <button class="tool" onclick="findFirmware()">
+      🔎 البحث عن Firmware
+    </button>
+
+    <p id="firmwareMessage" style="color:#9bbce0;text-align:center;"></p>
+
+  </div>
+</div>
+
+<script>
+function findFirmware() {
+  const model = document.getElementById("firmwareModel").value.trim();
+  const message = document.getElementById("firmwareMessage");
+
+  if (!model) {
+    message.textContent = "أدخل رقم الموديل أولاً";
+    return;
+  }
+
+  const query = encodeURIComponent(model + " Samsung firmware official");
+  message.textContent = "فتح نتائج البحث للموديل: " + model;
+
+  window.open(
+    "https://www.google.com/search?q=" + query,
+    "_blank"
+  );
+}
+</script>
+
 </body>
 </html>
