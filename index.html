@@ -540,5 +540,74 @@ function deleteRecord(index) {
 showRecords();
 </script>
 
+<!-- Rahmouni Dashboard -->
+<div class="container">
+  <h2 class="section-title">لوحة التحكم الرئيسية</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+
+    <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;text-align:center;">
+      <div style="font-size:28px;">📱</div>
+      <p>موديل الهاتف</p>
+      <strong id="dashModel" style="color:#168bff;">غير محدد</strong>
+    </div>
+
+    <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;text-align:center;">
+      <div style="font-size:28px;">🛠️</div>
+      <p>سجلات الصيانة</p>
+      <strong id="dashRecords" style="color:#168bff;">0</strong>
+    </div>
+
+    <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;text-align:center;">
+      <div style="font-size:28px;">🔌</div>
+      <p>USB</p>
+      <strong style="color:#42c98a;">قسم المساعدة</strong>
+    </div>
+
+    <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;text-align:center;">
+      <div style="font-size:28px;">📦</div>
+      <p>Firmware</p>
+      <strong style="color:#42c98a;">قسم البحث</strong>
+    </div>
+
+  </div>
+
+  <button class="tool" onclick="refreshDashboard()">
+    🔄 تحديث لوحة التحكم
+  </button>
+
+  <p id="dashMessage" style="text-align:center;color:#9bbce0;"></p>
+</div>
+
+<script>
+function refreshDashboard() {
+  const records = JSON.parse(
+    localStorage.getItem("rahmouniRecords") || "[]"
+  );
+
+  document.getElementById("dashRecords").textContent =
+    records.length;
+
+  const modelInput = document.getElementById("model");
+  const phoneInput = document.getElementById("phoneModel");
+
+  let model = "";
+
+  if (modelInput && modelInput.value.trim()) {
+    model = modelInput.value.trim();
+  } else if (phoneInput && phoneInput.value.trim()) {
+    model = phoneInput.value.trim();
+  }
+
+  document.getElementById("dashModel").textContent =
+    model || "غير محدد";
+
+  document.getElementById("dashMessage").textContent =
+    "تم تحديث لوحة التحكم";
+}
+
+refreshDashboard();
+</script>
+
 </body>
 </html>
