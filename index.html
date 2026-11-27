@@ -257,5 +257,60 @@ function openSamsungSupport() {
   </div>
 </div>
 
+<!-- Samsung Device Check -->
+<div class="container">
+  <h2 class="section-title">فحص الهاتف</h2>
+
+  <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;">
+
+    <label for="phoneModel">رقم موديل الهاتف:</label>
+
+    <input id="phoneModel"
+      placeholder="مثال: SM-A145F"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+    <label for="androidVersion">إصدار Android:</label>
+
+    <select id="androidVersion"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+      <option value="">اختر الإصدار</option>
+      <option>Android 10</option>
+      <option>Android 11</option>
+      <option>Android 12</option>
+      <option>Android 13</option>
+      <option>Android 14</option>
+      <option>Android 15</option>
+      <option>Android 16</option>
+    </select>
+
+    <button class="tool" onclick="checkPhone()">
+      فحص المعلومات
+    </button>
+
+    <p id="phoneResult" style="color:#9bbce0;text-align:center;"></p>
+
+  </div>
+</div>
+
+<script>
+function checkPhone() {
+  const model = document.getElementById("phoneModel").value.trim();
+  const android = document.getElementById("androidVersion").value;
+  const result = document.getElementById("phoneResult");
+
+  if (!model || !android) {
+    result.textContent = "أدخل رقم الموديل واختر إصدار Android.";
+    return;
+  }
+
+  result.innerHTML =
+    "معلومات الجهاز:<br>" +
+    "الموديل: " + model + "<br>" +
+    "النظام: " + android + "<br><br>" +
+    "تأكد من مطابقة هذه المعلومات قبل تحميل ملفات الصيانة.";
+}
+</script>
+
 </body>
 </html>
