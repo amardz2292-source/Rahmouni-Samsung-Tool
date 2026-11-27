@@ -355,5 +355,41 @@ function findFirmware() {
 }
 </script>
 
+<!-- USB Connection Center -->
+<div class="container">
+  <h2 class="section-title">USB Connection Center</h2>
+
+  <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;">
+
+    <h3 style="color:#168bff;">تجهيز اتصال Samsung USB</h3>
+
+    <p>1. استخدم كابل USB يدعم نقل البيانات.</p>
+    <p>2. افتح قفل الهاتف بعد توصيله بالكمبيوتر.</p>
+    <p>3. اختر نقل الملفات من إشعار USB إن ظهر.</p>
+    <p>4. على Windows، ثبّت تعريف Samsung الرسمي.</p>
+
+    <a class="tool"
+       style="display:block;text-decoration:none;"
+       href="https://developer.samsung.com/android-usb-driver"
+       target="_blank">
+      📥 تحميل Samsung USB Driver
+    </a>
+
+    <button class="tool" onclick="usbHelp()">
+      🔌 عرض مساعدة USB
+    </button>
+
+    <p id="usbMessage" style="color:#9bbce0;text-align:center;"></p>
+
+  </div>
+</div>
+
+<script>
+function usbHelp() {
+  document.getElementById("usbMessage").textContent =
+    "إذا لم يتعرف الكمبيوتر على الهاتف، جرّب كابل بيانات آخر ومنفذ USB مختلفًا، ثم أعد تثبيت التعريف الرسمي.";
+}
+</script>
+
 </body>
 </html>
