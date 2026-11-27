@@ -172,5 +172,59 @@ function showModel() {
   Rahmouni Hocine © 2026
 </div>
 
+<div style="margin:15px;padding:15px;background:#101c31;border-radius:12px;">
+  <h3 style="color:#168bff;">أدوات إضافية</h3>
+
+  <button class="tool" onclick="copyModel()">
+    📋 نسخ اسم الموديل
+  </button>
+
+  <button class="tool" onclick="searchFirmware()">
+    🔎 البحث عن Firmware
+  </button>
+
+  <button class="tool" onclick="openSamsungSupport()">
+    🛠️ دعم Samsung الرسمي
+  </button>
+
+  <p id="extraInfo" style="color:#9bbce0;text-align:center;"></p>
+</div>
+
+<script>
+function copyModel() {
+  const model = document.getElementById("model").value;
+  const info = document.getElementById("extraInfo");
+
+  if (!model) {
+    info.textContent = "اختر موديل الهاتف أولاً";
+    return;
+  }
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(model);
+    info.textContent = "تم نسخ الموديل: " + model;
+  } else {
+    info.textContent = "الموديل المختار: " + model;
+  }
+}
+
+function searchFirmware() {
+  const model = document.getElementById("model").value;
+
+  if (!model) {
+    document.getElementById("extraInfo").textContent =
+      "اختر موديل الهاتف أولاً";
+    return;
+  }
+
+  const query = encodeURIComponent(model + " Samsung official firmware");
+  window.open("https://www.google.com/search?q=" + query, "_blank");
+}
+
+function openSamsungSupport() {
+  window.open("https://www.samsung.com/ae/support/", "_blank");
+}
+</script>
+
 </body>
 </html>
