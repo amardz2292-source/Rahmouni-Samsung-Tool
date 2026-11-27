@@ -391,5 +391,52 @@ function usbHelp() {
 }
 </script>
 
+<!-- Samsung Phone Info -->
+<div class="container">
+  <h2 class="section-title">Samsung Phone Info</h2>
+
+  <div style="background:#101c31;padding:18px;border-radius:14px;border:1px solid #1769b5;">
+
+    <label for="deviceName">اسم الهاتف:</label>
+
+    <input id="deviceName"
+      placeholder="مثال: Galaxy A14"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+    <label for="deviceCode">رقم الموديل:</label>
+
+    <input id="deviceCode"
+      placeholder="مثال: SM-A145F"
+      style="width:100%;padding:14px;margin:12px 0;background:#07101f;color:white;border:1px solid #168bff;border-radius:10px;">
+
+    <button class="tool" onclick="showDeviceInfo()">
+      عرض معلومات الهاتف
+    </button>
+
+    <div id="deviceInfo"
+      style="color:#9bbce0;text-align:center;margin-top:15px;">
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showDeviceInfo() {
+  const name = document.getElementById("deviceName").value.trim();
+  const code = document.getElementById("deviceCode").value.trim();
+  const result = document.getElementById("deviceInfo");
+
+  if (!name || !code) {
+    result.textContent = "يرجى إدخال اسم الهاتف ورقم الموديل.";
+    return;
+  }
+
+  result.innerHTML =
+    "اسم الهاتف: " + name +
+    "<br>رقم الموديل: " + code +
+    "<br><br>تأكد من رقم الموديل قبل اختيار ملفات النظام.";
+}
+</script>
+
 </body>
 </html>
